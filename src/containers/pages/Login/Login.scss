@@ -1,0 +1,32 @@
+.auth-container {
+    background-image: url(../../../assets/img/avatar/covid.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.btnRegister {
+    background-color: #2196f3;
+    border-radius: 10px;
+    color: white;
+    display: block;
+    text-transform: uppercase;
+    font-weight: bold;
+    outline: none;
+    width: 150px;
+    height: 30px;
+    margin-top: 10px;
+    
+
+    &:hover {
+        background: #1873bb;
+        cursor: pointer;
+    }
+}
+
+.tanya {
+    float: left;
+    margin-right: 10px;
+    text-align: center;
+    margin-left: 55px;
+}

@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+a .logout{
+    color: beige;
+    z-index: 99;
+}
+
+// .sidebar {
+//     position: fixed;
+//     width: 200px;
+//     height: 100%;
+//     margin-top: 5px;
+//     left: 0;
+//     background: #343a40;
+// }
+
+// .navbar-brand {
+//     font-size: 25px;
+//     text-decoration: underline;
+    
+// }
+
+// .navbar-light .navbar-brand {
+//     color: rgba(0,0,0,.9);
+//     font-size: 28px;
+// }
+
+
+
+// .btn-group {
+//     top: 5px;
+// }
+
+// .logout {
+//     background-image: url(../../../assets/img/icons/icon-logout.png);
+//     width: 30px;
+//     height: 30px;
+//     background-size: cover;
+//     padding: 4px;
+
+//     &:hover {
+//         cursor: pointer;
+//     }
+// }
+
+// .dropdown-menu.show {
+//     display: grid;
+//     padding: 10px;
+//     margin-bottom: 10px;
+//     width: 50px;
+// }
+
+// .gambar {
+//     background-image: url(../../../assets/img/avatar/covid.png);
+//     width: 800px;
+//     height: 500px;
+//     margin-left: 210px;
+//     background-position: center;
+//     background-repeat: no-repeat;
+// }
