@@ -4,6 +4,8 @@ import { actionUserName } from '../../../config/redux/action';
 import Button from '../../../components/atoms/Button';
 import { loginUserAPI } from '../../../config/redux/action';
 import './Login.scss';
+// import { Router, Redirect } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 class Login extends Component {
     state = {
@@ -21,6 +23,8 @@ class Login extends Component {
         const{email,password} = this.state;
         console.log('data before send: ', email, password)
         const {history} = this.props;
+        console.log(history);
+        
         const res = await this.props.LoginAPI({email, password}).catch(err => err);
         if(res) {
             console.log('login sukses');
@@ -29,14 +33,28 @@ class Login extends Component {
                 email: '',
                 password: ''
             })
-            this.props.loginDariApp()
-            // history.push('/')
+            // this.props.loginDariApp()
+            // this.renderRedirect()
+            window.location.replace('/')
+            
         } else {
             console.log('login gagal')
             alert('Data yang anda masukkan salah!')
         }
         
     }
+    
+    
+
+      renderRedirect = () => {
+          console.log(this.props);
+          
+        //   console.log('saaaaaaaaaaaaaaaaaa');
+        //   location.replace('dash')
+
+          
+        //   return <Redirect to='/dashboard' />
+      }
 
     handleBtnRegistrasi = () => {
         const {history} = this.props;
@@ -44,11 +62,19 @@ class Login extends Component {
     }
 
     render() {
+        const { email } = this.state;
         return (
                 <div className="auth-container" >
                     <div className="auth-card">
                     <p className="auth-title">Halaman Login</p>
-                        <input className="input" id="email" placeholder="masukkan email" type="text" onChange={this.handleChangeText} value={this.state.email}/>
+                        <input
+                            className="input"
+                            id="email"
+                            placeholder="masukkan email"
+                            type="text"
+                            onChange={this.handleChangeText}
+                            value={email}
+                        />
                         <input className="input" id="password" placeholder="masukkan password" type="password" onChange={this.handleChangeText} value={this.state.password}/>
                         <Button onClick={this.handleLoginSubmit} title="Login" loading={this.props.isLoading} />
                         <p className="tanya">Sudah punya akun?</p>

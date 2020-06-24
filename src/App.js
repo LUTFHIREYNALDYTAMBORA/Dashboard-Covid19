@@ -16,24 +16,27 @@ import CuciTangan from './containers/pages/CuciTangan';
 import NegaraNegara from './containers/pages/NegaraNegara';
 import Indonesia from './containers/pages/Indonesia';
 import BatukBersin from './containers/pages/BatukBersin';
+import Form from './containers/pages/Form';
 import { AuthProvider } from './config/firebase/Auth/Auth.js';
 import PrivateRoute from './config/PrivateRoute/PrivateRoute.js';
 
 export default class App extends Component {
   state = {
-    login: false
+    login: localStorage.getItem('userData')
   }
 
   handleLogin =  () => {
-    this.setState({
-      login: !this.state.login
-    }) 
+    console.log('login');
+    
+    // this.setState({
+    //   login: !this.state.login
+    // }) 
   }
 
-  handleLogout = () => {
-    const {history} = this.props;
-    return history.push('/login')
-  }
+  // handleLogout = () => {
+  //   const {history} = this.props;
+  //   return history.push('/login')
+  // }
 
   renderLogin = () => {
     return (
@@ -46,9 +49,9 @@ export default class App extends Component {
     return (
       <Router>
       <div>
-        <Route exact path="/" component= {Dashboard} />
+        <Route path="/" component= {Dashboard} />
         {/* <Route exact path="/login" component= {Login}/> */}
-        <Route exact path="/register" component= {Register}/>
+        <Route path="/register" component= {Register}/>
 
         <Route path="/penjelasan"  component= {Penjelasan}/>
         <Route path="/tandaGejala"  component= {TandaGejala}/>
@@ -56,11 +59,14 @@ export default class App extends Component {
         <Route path="/10-Negara-Kasus-Terbanyak"  component= {NegaraNegara}/>
         <Route path="/10-Prov-Penyebaran-Terbanyak-di-Indonesia"  component= {Indonesia}/>
         <Route path="/batukBersin"  component= {BatukBersin}/> 
+        <Route path="/form"  component= {Form}/> 
       </div>
     </Router>
     )
   }
   render() {
+    console.log(this.state.login);
+    
     return (
         <Provider store={store}>
           <AuthProvider>

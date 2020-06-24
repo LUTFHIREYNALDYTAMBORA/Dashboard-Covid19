@@ -4,8 +4,15 @@ import 'jquery';
 import './styleCuciTangan.scss';
 import {Link} from 'react-router-dom';
 import Dashboard from '../Dashboard';
+import TextFieldReusbale from '../../../components/atoms/TextFieldReusable';
 
 class CuciTangan extends Component {
+    _handleChange = (e) => {
+        console.log(e.target.value);
+        console.log(e.target.name);
+        
+    }
+
     render() {
         const dataDummy = [
             {
@@ -47,6 +54,11 @@ class CuciTangan extends Component {
                         )
                     })
                     } 
+
+{/* <TextFieldReusbale label="Nama Saya" type="text" name="password" placeholder="Nama Lengkap" icon2={true} ambilValue={(e) => this._handleChange(e)
+                }/>
+                <TextFieldReusbale label="Password" name="password" type="text" placeholder="Password" ambilValue={(e) => this._handleChange(e)
+                }/> */}
             </div>
             </Dashboard>
         )

@@ -2,15 +2,23 @@ import React, {Component, Fragment, Children} from 'react';
 
 import 'jquery';
 
-import {Link} from 'react-router-dom';
+import {Link, Router} from 'react-router-dom';
+import Button from '../../../components/atoms/Button';
+import { Redirect } from 'react-router-dom';
 
 class Dashboard extends Component {
 
+
+    _handleLogout = () => {
+        localStorage.removeItem('userData')
+        
+        window.location.replace('/login')
+    }
     render() {
         
 
         return (
-            <Fragment>
+            <>
             <div className="container-header">    
             <header className="main-header">
             {/* Logo */}
@@ -27,7 +35,7 @@ class Dashboard extends Component {
                 <span className="sr-only">Toggle navigation</span>
             </a>
             {/* Navbar Right Menu */}
-            <a href="/login" className="logout" > Logout </a>
+            <Button  className="logout" onClick={this._handleLogout} > Logout </Button>
             </nav>
             
         </header>
@@ -56,7 +64,7 @@ class Dashboard extends Component {
                     </li>
                     
                     <li className="treeview">
-                    <a href="">
+                    <a href="" className="nav-link">
                         <i className="fa fa-edit" /> <span>Virus Corona</span>
                         <span className="pull-right-container">
                         <i className="fa fa-angle-left pull-right" />
@@ -83,7 +91,7 @@ class Dashboard extends Component {
                     </li>
                         
                     <li className="treeview">
-                    <a href="no">
+                    <a href="">
                         <i className="fa fa-share" /> <span>Pencegahan</span>
                         <span className="pull-right-container">
                         <i className="fa fa-angle-left pull-right" />
@@ -92,7 +100,12 @@ class Dashboard extends Component {
                     <ul className="treeview-menu">
                         <li><a href="/cuciTangan"><i className="fa fa-circle-o" /> Cara Cuci Tangan </a></li>
                         <li><a href="/batukBersin"><i className="fa fa-circle-o" /> Etika Batuk dan Bersin </a></li>
+                        <li><a href="/form"><i className="fa fa-circle-o" /> Form </a></li>
                     </ul>
+                    </li>
+                    
+                    <li className="treeview">
+                        <a href="/cuciTangan">Form</a>
                     </li>
                     
                     
@@ -114,7 +127,7 @@ class Dashboard extends Component {
             </div>         
             
             
-            </Fragment>
+            </>
         )
     }
 }
